@@ -1,0 +1,35 @@
+.Home {
+  .list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style-type: none;
+      text-decoration: none;
+      background-color: #504c4c;
+      width: 200px;
+      height: 100px;
+      padding: 40px;
+      margin: 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+
+      .nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: larger;
+        letter-spacing: 0.15cap;
+      }
+    }
+
+    .link:hover {
+      transform: scale(0.95);
+    }
+  }
+}

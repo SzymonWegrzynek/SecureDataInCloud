@@ -1,0 +1,6 @@
+{
+  "programmingLang": "js",
+  "stylingLang": "scss",
+  "defaultComponentType": "fc",
+  "componentsOutDir": "./src/components"
+}
