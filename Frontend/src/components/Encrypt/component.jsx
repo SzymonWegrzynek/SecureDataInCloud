@@ -1,55 +1,62 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
 function Encrypt() {
   const [file, setFile] = useState(null);
-  const [filename, setFilename] = useState('');
-  const [message, setMessage] = useState('');
+  const [progress, setProgress] = useState({ started: false, pc: 0 });
+  const [msg, setMsg] = useState(null);
 
-  const onFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-  const onFilenameChange = (e) => {
-    setFilename(e.target.value);
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('filename', filename);
-
-    try {
-      const res = await axios.post('http://127.0.0.1:5001/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      setMessage(res.data);
-    } catch (err) {
-      setMessage('Error uploading file');
+  const handleUpload = () => {
+    if (!file) {
+      setMsg("No file selected");
+      return;
     }
+
+    const fd = new FormData();
+    fd.append("file", file);
+
+    setMsg("Uploading...");
+    setProgress((prevState) => {
+      return { ...prevState, started: true };
+    });
+
+    axios
+      .post("https://httpbin.org/post", fd, {
+        onUploadProgress: (progressEvent) => {
+          {
+            setProgress((prevState) => {
+              return { ...prevState, pc: progressEvent.progress * 100 };
+            });
+          }
+        },
+        headers: {
+          "Content-Type": "value",
+        },
+      })
+      .then((res) => {
+        setMsg("Upload successful");
+        console.log(res.data);
+      })
+      .catch((err) => {
+        setMsg("Upload failed");
+        console.error(err);
+      });
   };
 
   return (
-    <div>
-      <h1>Upload a file to cloud storage</h1>
-      {message && <p>{message}</p>}
-      <form onSubmit={onSubmit}>
-        <div>
-          <input type="file" onChange={onFileChange} />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter the filename"
-            value={filename}
-            onChange={onFilenameChange}
-          />
-        </div>
-        <button type="submit">Upload</button>
-      </form>
+    <div className="encrypt">
+      <p>Upload a file to Google Cloud Storage</p>
+      <div>
+        <input
+          type="file"
+          onChange={(e) => {
+            setFile(e.target.files[0]);
+          }}
+        />
+      </div>
+      <button onClick={handleUpload}>Upload</button>
+      {progress.started && <progress max="100" value={progress.pc}></progress>}
+      {msg && <span>{msg}</span>}
     </div>
   );
 }
