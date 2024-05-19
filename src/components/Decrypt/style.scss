@@ -1,0 +1,40 @@
+.decrypt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background-color: #504c4c;
+    padding: 3rem;
+    margin: 5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+
+    .choose-file {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      outline: none;
+      border: none;
+    }
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+}

@@ -12,11 +12,6 @@ function Decrypt() {
 
   const onDownload = async () => {
     try {
-<<<<<<< HEAD
-      const response = await axios.post('http://localhost:5001/download', { filename }, {
-        responseType: 'blob',
-      });
-=======
       const response = await axios.post(
         "http://127.0.0.1:5001/download",
         { filename },
@@ -24,7 +19,6 @@ function Decrypt() {
           responseType: "blob",
         }
       );
->>>>>>> 41d62df1365610b974ce57726dd307aabd288e57
 
       const fileUrl = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
@@ -47,19 +41,22 @@ function Decrypt() {
   };
 
   return (
-    <div>
-      <h1>Download a file from cloud storage</h1>
-      {message && <p>{message}</p>}
-      <input
-        type="text"
-        placeholder="Enter the filename"
-        value={filename}
-        onChange={onFilenameChange}
-      />
-      <button type="button" onClick={onDownload}>
-        Download
-      </button>
-    </div>
+    <main className="decrypt">
+      <p className="header">Download a file from cloud storage</p>
+      <section className="form">
+        <input
+          className="choose-file"
+          type="text"
+          placeholder="Enter the filename"
+          value={filename}
+          onChange={onFilenameChange}
+        />
+        <button className="upload-button" type="button" onClick={onDownload}>
+          Download
+        </button>
+      </section>
+      <section className="info">{message && <p>{message}</p>}</section>
+    </main>
   );
 }
 

@@ -26,7 +26,10 @@ function Encrypt() {
       .post("http://localhost:5001/upload", fd, {
         onUploadProgress: (progressEvent) => {
           setProgress((prevState) => {
-            return { ...prevState, pc: (progressEvent.loaded / progressEvent.total) * 100 };
+            return {
+              ...prevState,
+              pc: (progressEvent.loaded / progressEvent.total) * 100,
+            };
           });
         },
         headers: {
@@ -44,15 +47,9 @@ function Encrypt() {
   };
 
   return (
-<<<<<<< HEAD
-    <div className="encrypt">
-      <p>Upload a file to your Flask server</p>
-      <div>
-=======
     <main className="encrypt">
       <p className="header">Upload a file to Google Cloud Storage</p>
       <section className="form">
->>>>>>> 41d62df1365610b974ce57726dd307aabd288e57
         <input
           className="choose-file"
           type="file"
