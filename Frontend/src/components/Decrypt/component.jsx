@@ -12,6 +12,11 @@ function Decrypt() {
 
   const onDownload = async () => {
     try {
+<<<<<<< HEAD
+      const response = await axios.post('http://localhost:5001/download', { filename }, {
+        responseType: 'blob',
+      });
+=======
       const response = await axios.post(
         "http://127.0.0.1:5001/download",
         { filename },
@@ -19,6 +24,7 @@ function Decrypt() {
           responseType: "blob",
         }
       );
+>>>>>>> 41d62df1365610b974ce57726dd307aabd288e57
 
       const fileUrl = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
