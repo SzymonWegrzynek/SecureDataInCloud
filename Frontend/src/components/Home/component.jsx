@@ -7,12 +7,12 @@ const Home = () => {
       <section>
         <div className="link">
           <NavLink className="decrypt" to="/decrypt">
-            ODSZYFRUJ DANE
+            DECRYPT DATA
           </NavLink>
         </div>
         <div className="link">
           <NavLink className="encrypt" to="/encrypt">
-            ZASZYFRUJ DANE
+            ENCRYPT DATA
           </NavLink>
         </div>
       </section>
