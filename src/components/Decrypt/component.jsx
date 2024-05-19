@@ -51,7 +51,7 @@ function Decrypt() {
           value={filename}
           onChange={onFilenameChange}
         />
-        <button className="upload-button" type="button" onClick={onDownload}>
+        <button className="upload-file" type="button" onClick={onDownload}>
           Download
         </button>
       </section>
