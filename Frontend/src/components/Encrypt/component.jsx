@@ -14,6 +14,7 @@ function Encrypt() {
 
     const fd = new FormData();
     fd.append("file", file);
+    console.log(fd);
 
     setMsg("Uploading...");
     setProgress((prevState) => {
@@ -21,16 +22,14 @@ function Encrypt() {
     });
 
     axios
-      .post("https://httpbin.org/post", fd, {
+      .post("http://localhost:5001/upload", fd, {
         onUploadProgress: (progressEvent) => {
-          {
-            setProgress((prevState) => {
-              return { ...prevState, pc: progressEvent.progress * 100 };
-            });
-          }
+          setProgress((prevState) => {
+            return { ...prevState, pc: (progressEvent.loaded / progressEvent.total) * 100 };
+          });
         },
         headers: {
-          "Content-Type": "value",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
@@ -45,7 +44,7 @@ function Encrypt() {
 
   return (
     <div className="encrypt">
-      <p>Upload a file to Google Cloud Storage</p>
+      <p>Upload a file to your Flask server</p>
       <div>
         <input
           type="file"

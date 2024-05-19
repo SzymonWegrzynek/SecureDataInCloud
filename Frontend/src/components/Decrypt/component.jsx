@@ -11,7 +11,7 @@ function Decrypt() {
 
   const onDownload = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5001/download', { filename }, {
+      const response = await axios.post('http://localhost:5001/download', { filename }, {
         responseType: 'blob',
       });
 
