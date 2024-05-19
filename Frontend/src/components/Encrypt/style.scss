@@ -1,0 +1,47 @@
+.encrypt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #504c4c;
+    padding: 3rem;
+    margin: 5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+
+    .choose-file {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      width: 100%;
+    }
+
+    .upload-file {
+      background-color: #504c4c;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #444;
+      }
+    }
+  }
+}
