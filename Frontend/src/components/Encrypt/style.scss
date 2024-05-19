@@ -25,13 +25,12 @@
       box-sizing: border-box;
       padding: 10px;
       font-size: 1rem;
-      border: 2px solid #fff;
       border-radius: 10px;
       width: 100%;
     }
 
     .upload-file {
-      background-color: #504c4c;
+      background-color: #3c3c3c;
       color: #fff;
       padding: 10px 20px;
       font-size: 1rem;
@@ -43,5 +42,14 @@
         background-color: #444;
       }
     }
+  }
+
+  .progress-and-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    font-size: 1rem;
   }
 }

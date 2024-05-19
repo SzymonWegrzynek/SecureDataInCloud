@@ -59,7 +59,7 @@ function Encrypt() {
           Upload
         </button>
       </section>
-      <section>
+      <section className="progress-and-msg">
         {progress.started && (
           <progress max="100" value={progress.pc}></progress>
         )}
