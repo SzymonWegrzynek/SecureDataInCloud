@@ -1,3 +1,4 @@
+import "./style.scss";
 import { useState } from "react";
 import axios from "axios";
 
@@ -43,20 +44,33 @@ function Encrypt() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="encrypt">
       <p>Upload a file to your Flask server</p>
       <div>
+=======
+    <main className="encrypt">
+      <p className="header">Upload a file to Google Cloud Storage</p>
+      <section className="form">
+>>>>>>> 41d62df1365610b974ce57726dd307aabd288e57
         <input
+          className="choose-file"
           type="file"
           onChange={(e) => {
             setFile(e.target.files[0]);
           }}
         />
-      </div>
-      <button onClick={handleUpload}>Upload</button>
-      {progress.started && <progress max="100" value={progress.pc}></progress>}
-      {msg && <span>{msg}</span>}
-    </div>
+        <button className="upload-file" onClick={handleUpload}>
+          Upload
+        </button>
+      </section>
+      <section className="progress-and-msg">
+        {progress.started && (
+          <progress max="100" value={progress.pc}></progress>
+        )}
+        {msg && <span>{msg}</span>}
+      </section>
+    </main>
   );
 }
 

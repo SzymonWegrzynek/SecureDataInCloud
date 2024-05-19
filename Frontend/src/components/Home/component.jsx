@@ -3,20 +3,20 @@ import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="Home">
-      <ul className="list">
-        <li className="link">
-          <NavLink className="nav-link" to="/decrypt">
+    <main className="home">
+      <section>
+        <div className="link">
+          <NavLink className="decrypt" to="/decrypt">
             ODSZYFRUJ DANE
           </NavLink>
-        </li>
-        <li className="link">
-          <NavLink className="nav-link" to="/encrypt">
+        </div>
+        <div className="link">
+          <NavLink className="encrypt" to="/encrypt">
             ZASZYFRUJ DANE
           </NavLink>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </section>
+    </main>
   );
 };
 
