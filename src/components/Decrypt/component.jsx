@@ -1,6 +1,8 @@
 import "./style.scss";
 import { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import { MdHomeFilled } from "react-icons/md";
 
 function Decrypt() {
   const [filename, setFilename] = useState("");
@@ -42,6 +44,9 @@ function Decrypt() {
 
   return (
     <main className="decrypt">
+      <NavLink className="home" to="/">
+        <MdHomeFilled />
+      </NavLink>
       <p className="header">Download a file from cloud storage</p>
       <section className="form">
         <input

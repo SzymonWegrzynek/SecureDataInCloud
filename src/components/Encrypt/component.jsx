@@ -1,6 +1,8 @@
 import "./style.scss";
 import { useState } from "react";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import { MdHomeFilled } from "react-icons/md";
 
 function Encrypt() {
   const [file, setFile] = useState(null);
@@ -48,6 +50,9 @@ function Encrypt() {
 
   return (
     <main className="encrypt">
+      <NavLink className="home" to="/">
+        <MdHomeFilled />
+      </NavLink>
       <p className="header">Upload a file to Google Cloud Storage</p>
       <section className="form">
         <input
