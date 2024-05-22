@@ -25,7 +25,7 @@ function Encrypt() {
     });
 
     axios
-      .post("http://localhost:5001/upload", fd, {
+      .post("http://localhost:5000/upload", fd, {
         onUploadProgress: (progressEvent) => {
           setProgress((prevState) => {
             return {
